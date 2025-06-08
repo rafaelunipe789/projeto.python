@@ -43,7 +43,7 @@ def concluir(tarefas):
             print("Número inválido.")
     except ValueError:
         print("Digite um número válido.")
-        def apagar(tarefas):
+def apagar(tarefas):
     listar(tarefas)
     try:
         num = int(input("Número da tarefa que deseja excluir: ")) - 1
@@ -58,3 +58,29 @@ def concluir(tarefas):
 def main():
     tarefas = carregar()
 
+    while True:
+        print("\n==== MENU ====")
+        print("1 - Listar tarefas")
+        print("2 - Nova tarefa")
+        print("3 - Concluir tarefa")
+        print("4 - Remover tarefa")
+        print("5 - Sair")
+        opcao = input("Escolha uma opção: ").strip()
+
+        if opcao == '1':
+            listar(tarefas)
+        elif opcao == '2':
+            nova(tarefas)
+        elif opcao == '3':
+            concluir(tarefas)
+        elif opcao == '4':
+            apagar(tarefas)
+        elif opcao == '5':
+            salvar(tarefas)
+            print("Tarefas salvas. Até a próxima!")
+            break
+        else:
+            print("Opção não reconhecida.")
+
+if __name__ == "__main__":
+    main()
